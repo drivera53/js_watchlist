@@ -61,7 +61,15 @@ button:hover {
   width: stretch;
   height: auto;
   display: none;
-  background: #515DA2;
+  background: #ececee;
+  opacity: .8;
+}
+
+.watchlist_container {
+  padding: 1rem;
+  width: stretch;
+  height: auto;
+  background: #ececee;
   opacity: .8;
 }
 
