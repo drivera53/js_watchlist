@@ -20,6 +20,7 @@ class FlatcoinWatchlistAdapter {
         })    
     }
 
+    // Create new Watchlist
     createWatchlist(nameInput, descriptionInput) {
         fetch(this.baseURL + `watchlists`, {
             method: "POST",
@@ -51,34 +52,25 @@ class FlatcoinWatchlistAdapter {
         .catch(err => console.error(err)) 
     }
 
+    // Delete Watchlist
     deleteWatchlist(div) {
         fetch(this.baseURL + `watchlists/` + div.dataset.id, {
             method: "DELETE"
         })
+
         .then(resp => {
             console.log(resp)
-            console.log(resp['status'])
-            if(resp['status'] === 204){
-                div.remove()
-            } else {
-                alert(resp['status'])
-            }
-            
+            return resp.json()
         })
-
         .then(data => {
             console.log(data)
+            if(data.message === "Successfully deleted" ){
+                div.remove()
+            } else {
+                alert(data.message)
+            }
         })
-        // .then(resp => resp.json())
-        // .then(data => {
-        //     console.log(data)
-        //     if(data.status === 204){
-        //         div.remove()
-        //     } else {
-        //         alert(data.message)
-        //     }
-        // })
-        // .catch(err => console.error(err))
+        .catch(err => console.error(err))
     }
 
 }
