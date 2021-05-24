@@ -48,6 +48,7 @@ class FlatcoinWatchlistAdapter {
             nameInput.value = ""
             descriptionInput.value = ""
             watchlistFormContainer.style.display = "none"
+            newWatchlistBtn.innerText = "Create a new Watchlist!"
         })
         .catch(err => console.error(err)) 
     }
@@ -71,6 +72,37 @@ class FlatcoinWatchlistAdapter {
             }
         })
         .catch(err => console.error(err))
+    }
+
+    // Edit Watchlist
+    editWatchlist(editMode, nameInput, descriptionInput){
+        fetch(this.baseURL + `watchlists/` + editMode.dataset.id, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                name: nameInput.value,
+                description: descriptionInput.value
+            })           
+        })
+        .then(resp => {
+            console.log(resp)
+            return resp.json()
+        })
+        .then(data => {
+            console.log(data)
+            if (data.status === 200) {
+                editMode.children[0].innerText = data.watchlist.name
+                editMode.children[1].innerText = data.watchlist.description
+                editMode = false
+                document.getElementById('watchlist_submit').value = "Create Watchlist!"
+                nameInput.value = ""
+                descriptionInput.value = ""
+                watchlistFormContainer.style.display = "none"
+            }
+        })    
     }
 
 }

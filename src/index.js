@@ -1,4 +1,5 @@
 
+let editMode = false
 let addWatchlist = false;
 
 let divWatchlistCollection = document.querySelector('#watchlist_collection')
@@ -19,10 +20,12 @@ const newWatchlistBtn = document.getElementById("new_watchlist_btn")
 newWatchlistBtn.addEventListener("click", () => {
     addWatchlist = !addWatchlist
     if (addWatchlist) {
+        newWatchlistBtn.innerText = "Never mind!"
         watchlistFormContainer.style.display = "block"
         // watchlistForm.addCreateForm()
     } else {
         watchlistFormContainer.style.display = "none"
+        newWatchlistBtn.innerText = "Create a new Watchlist!"
     }
 })
 
