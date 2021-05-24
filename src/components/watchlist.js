@@ -9,11 +9,25 @@ class Watchlist {
         Watchlist.all.push(this)    
     }
 
+    // render() {
+    //     return(`<div class="box" id="watchlist-${this.id}" data-id=${this.id}>
+    //             <h2>${this.name}</h2>
+    //             <p>${this.description}</p>
+    //             <p>${this.created_at}</p>
+    //             <button data-action='view'>View</button>
+    //             <p><button data-action='edit'>Edit</button> <button data-action='delete'>Delete</button></p>
+    //         </div>`
+    //     )
+    // }
+
     render() {
-        return(`<div class="box" id="watchlist_${this.id}" data_id=${this.id}>
+        return(`<div class="box" id="watchlist-${this.id}" data-id=${this.id}>
                 <h2>${this.name}</h2>
                 <p>${this.description}</p>
                 <p>${this.created_at}</p>
+                <button data-action='view'>View</button>
+                <button data-action='edit'>Edit</button> 
+                <button data-action='delete'>Delete</button>
             </div>`
         )
     }

@@ -3,12 +3,12 @@
 class FlatcoinWatchlistAdapter {
     
     constructor(baseURL) {
-        this.baseWatchlistURL = baseURL
+        this.baseURL = baseURL
     }
 
     // Fetch Watchlist Function
     getWatchlists() {
-        fetch(this.baseWatchlistURL + `watchlists`)
+        fetch(this.baseURL + `watchlists`)
         .then(res => res.json())
         .then(watchlists => {
             watchlists.forEach(watchlist => {
@@ -21,7 +21,7 @@ class FlatcoinWatchlistAdapter {
     }
 
     createWatchlist(nameInput, descriptionInput) {
-        fetch(this.baseWatchlistURL + `watchlists`, {
+        fetch(this.baseURL + `watchlists`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -32,8 +32,21 @@ class FlatcoinWatchlistAdapter {
                 description: descriptionInput.value
             }) 
         })
+        // .then(resp => {
+        //     console.log(resp)
+        //     if(resp['status'] === 201){
+        //         const s = new Watchlist(data.store)
+        //         s.addToDom()
+        //     } else {
+        //         alert(resp['status'])
+        //     }
+        //     nameInput.value = ""
+        //     descriptionInput.value = ""
+
+        // })
         .then(res => res.json())
         .then(data => {
+            console.log(data.status)
             if (data.status === 201) {
                 const s = new Watchlist(data.store)
                 s.addToDom()
@@ -44,4 +57,36 @@ class FlatcoinWatchlistAdapter {
             descriptionInput.value = ""
         })
     }
+
+    deleteWatchlist(div) {
+        fetch(this.baseURL + `watchlists/` + div.dataset.id, {
+        // fetch(this.baseURL + `watchlists/90`, {
+            method: "DELETE"
+        })
+        .then(resp => {
+            console.log(resp)
+            console.log(resp['status'])
+            if(resp['status'] === 204){
+                div.remove()
+            } else {
+                alert(resp['status'])
+            }
+            
+        })
+
+        .then(data => {
+            console.log(data)
+        })
+        // .then(resp => resp.json())
+        // .then(data => {
+        //     console.log(data)
+        //     if(data.status === 204){
+        //         div.remove()
+        //     } else {
+        //         alert(data.message)
+        //     }
+        // })
+        // .catch(err => console.error(err))
+    }
+
 }
