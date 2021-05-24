@@ -32,35 +32,27 @@ class FlatcoinWatchlistAdapter {
                 description: descriptionInput.value
             }) 
         })
-        // .then(resp => {
-        //     console.log(resp)
-        //     if(resp['status'] === 201){
-        //         const s = new Watchlist(data.store)
-        //         s.addToDom()
-        //     } else {
-        //         alert(resp['status'])
-        //     }
-        //     nameInput.value = ""
-        //     descriptionInput.value = ""
-
-        // })
-        .then(res => res.json())
+        .then(resp => {
+            console.log(resp)
+            return resp.json()
+        })
         .then(data => {
-            console.log(data.status)
+            console.log(data)
             if (data.status === 201) {
-                const s = new Watchlist(data.store)
+                const s = new Watchlist(data.watchlist)
                 s.addToDom()
             } else {
                 alert(data.errors)
             }
             nameInput.value = ""
             descriptionInput.value = ""
+            watchlistFormContainer.style.display = "none"
         })
+        .catch(err => console.error(err)) 
     }
 
     deleteWatchlist(div) {
         fetch(this.baseURL + `watchlists/` + div.dataset.id, {
-        // fetch(this.baseURL + `watchlists/90`, {
             method: "DELETE"
         })
         .then(resp => {
