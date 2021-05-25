@@ -57,6 +57,12 @@ class WatchlistForm {
                 document.getElementById('description_input').value = div.children[1].innerText
                 break
             case "view":
+                // Displaying Coin Form
+                const coinlistForm = new CoinForm
+                coinlistForm.addCreateForm(div.children[0].innerText)
+                const coinContainer = document.getElementById("coin_form_container")
+                coinContainer.style.display = "block"
+                // Displaying Coins
                 coinCollection.style.display = "block"
                 console.log(div)
                 const flatcoinCoinAdapter = new FlatcoinCoinAdapter(`http://127.0.0.1:3000/`)

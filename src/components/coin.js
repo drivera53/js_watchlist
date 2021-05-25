@@ -21,9 +21,16 @@ class Coin {
 
     render() { 
         return(`<div class="coin_box" id="coin-${this.id}" data-id=${this.id}>
-                <h2>Coin ID: ${this.id}</h2>
-                <h2>Coin ID: ${this.name}</h2>
-                <p>Watchlist ID: ${this.watchlist_id}</p>
+                <p><img src="${this.image}" alt="${this.name}" width="150" height="150"></p>
+                <h2>${this.name}</h2>
+                <h3>Current Price: $${this.current_price}</h3>
+                <p>Price Change 1 Hour: ${this.price_change_percentage_1h_in_currency}%</p>
+                <p>24 Hour High: $${this.high_24h}</p>
+                <p>24 Hour Low: $${this.low_24h}</p>
+                <p>Trading Volume 24 Hours: ${this.total_volume}</p>
+                <p>Market Cap: ${this.market_cap}</p>
+                <p>Market Cap Rank: #${this.watchlist_id}</p>
+                <p>Circulating Supply: $${this.circulating_supply}</p>
                 <button data-action='delete'>Delete</button>
             </div>`
         )

@@ -37,10 +37,10 @@ body {
   border: grey solid 1px;
   padding: 1rem;
   width: 30rem;
-  height: 30rem;
+  height: 60rem;
   display: inline-grid;
   margin: 1rem 2rem;
-  box-shadow: 3px 4px #4f7ccf
+  box-shadow: 3px 4px #4f7ccf;
 }
 
 .toy-avatar {
@@ -77,6 +77,15 @@ button:hover {
 }
 
 .watchlist_container {
+  padding: 1rem;
+  width: stretch;
+  height: auto;
+  display: none;
+  background: #ececee;
+  opacity: .8;
+}
+
+.coin_container {
   padding: 1rem;
   width: stretch;
   height: auto;
