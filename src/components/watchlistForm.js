@@ -1,7 +1,7 @@
 class WatchlistForm {
     constructor(){
         this.handleSubmit = this.handleSubmit.bind(this)
-        this.handleEditDelete = this.handleEditDelete.bind(this)
+        this.handleViewEditDelete = this.handleViewEditDelete.bind(this)
     }
 
     addCreateForm() {
@@ -34,10 +34,10 @@ class WatchlistForm {
 
     listenEditDelete() {
         const watchlistCollection = document.getElementById("watchlist_collection")
-        watchlistCollection.addEventListener("click", this.handleEditDelete)
+        watchlistCollection.addEventListener("click", this.handleViewEditDelete)
     }
 
-    handleEditDelete(event) {
+    handleViewEditDelete(event) {
         const div = event.target.parentElement
         console.log(div)
         const action = event.target.dataset.action
@@ -56,6 +56,11 @@ class WatchlistForm {
                 document.getElementById('name_input').value = div.children[0].innerText
                 document.getElementById('description_input').value = div.children[1].innerText
                 break
+            case "view":
+                coinCollection.style.display = "block"
+                console.log(div)
+                const flatcoinCoinAdapter = new FlatcoinCoinAdapter(`http://127.0.0.1:3000/`)
+                flatcoinCoinAdapter.getCoinlist(div)
             default:
                 break
         }
