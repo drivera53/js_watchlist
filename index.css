@@ -103,6 +103,32 @@ button:hover {
   opacity: .8;
 }
 
+.confirmation_delete_container {
+  padding: 1rem;
+  width: stretch;
+  height: auto;
+  display: none;
+  background: #ececee;
+  opacity: .8;
+}
+
+.confirmation_update_container {
+  padding: 1rem;
+  width: stretch;
+  height: auto;
+  display: none;
+  background: #ececee;
+  opacity: .8;
+}
+
+
+.new_watchlist_btn {
+  display: block;
+  margin: 0;
+  position: relative;
+  left: 40%;
+}
+
 .add-toy-form {
   width: 80%
 }

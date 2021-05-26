@@ -72,6 +72,8 @@ class FlatcoinWatchlistAdapter {
             console.log(data.message)
             if(data.message === "Successfully deleted." ){
                 div.remove()
+                confirmationDeleteContainer.style.display = "block"           
+                setTimeout(function(){confirmationDeleteContainer.style.display = "none"}, 1500)
             } else {
                 alert(data.message)
             }
@@ -101,13 +103,30 @@ class FlatcoinWatchlistAdapter {
             if (data.status === 200) {
                 editMode.children[0].innerText = data.watchlist.name
                 editMode.children[1].innerText = data.watchlist.description
-                editMode = false
-                document.getElementById('watchlist_submit').value = "Create Watchlist!"
+                // editMode = false
+                // document.getElementById('watchlist_submit').value = "Create Watchlist!"
                 nameInput.value = ""
                 descriptionInput.value = ""
+                document.getElementById("watchlist_submit").value = "Create Watchlist!"
                 watchlistFormContainer.style.display = "none"
+                newWatchlistBtn.style.display = "block"
+                confirmationUpdateContainer.style.display = "block"           
+                setTimeout(function(){confirmationUpdateContainer.style.display = "none"}, 1500)
+                // if (editMode){
+                //     console.log(editMode)
+                // } else {
+                //     console.log("Yeah it's false")
+                // }
+            } else {
+                alert(data.errors)
             }
-        })    
+        })
+        // .then(function() {
+        //     editMode = false
+        // })
+        .catch(err => console.error(err))
+        // console.log("THis shouled be editMode")
+        // console.log(editMode)  
     }
 
 }

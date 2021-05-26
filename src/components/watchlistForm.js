@@ -43,6 +43,7 @@ class WatchlistForm {
             case "edit":
                 editMode = div
                 watchlistFormContainer.style.display = "block"
+                newWatchlistBtn.style.display = "none"
                 // const watchiListSubmitBtn = document.getElementById("watchlist_submit")
                 // watchiListSubmitBtn.value = "Update"
                 document.getElementById("watchlist_submit").value = "Update"
