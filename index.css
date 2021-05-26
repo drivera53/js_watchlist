@@ -94,6 +94,15 @@ button:hover {
   opacity: .8;
 }
 
+.confirmation_container {
+  padding: 1rem;
+  width: stretch;
+  height: auto;
+  display: none;
+  background: #ececee;
+  opacity: .8;
+}
+
 .add-toy-form {
   width: 80%
 }

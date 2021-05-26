@@ -38,17 +38,22 @@ class FlatcoinWatchlistAdapter {
             return resp.json()
         })
         .then(data => {
-            console.log(data)
+            console.log(data.message)
             if (data.status === 201) {
                 const s = new Watchlist(data.watchlist)
                 s.addToDom()
+                // alert(data.message)
             } else {
                 alert(data.errors)
             }
             nameInput.value = ""
             descriptionInput.value = ""
-            watchlistFormContainer.style.display = "none"
-            newWatchlistBtn.innerText = "Create a new Watchlist!"
+            // watchlistFormContainer.style.display = "none"
+            // newWatchlistBtn.innerText = "I'm done!" .click()
+            // newWatchlistBtn.innerText = "I'm done!"
+            newWatchlistBtn.click()
+            confirmationContainer.style.display = "block"           
+            setTimeout(function(){confirmationContainer.style.display = "none"}, 1500)
         })
         .catch(err => console.error(err)) 
     }
@@ -60,12 +65,12 @@ class FlatcoinWatchlistAdapter {
         })
 
         .then(resp => {
-            console.log(resp)
+            // console.log(resp)
             return resp.json()
         })
         .then(data => {
-            console.log(data)
-            if(data.message === "Successfully deleted" ){
+            console.log(data.message)
+            if(data.message === "Successfully deleted." ){
                 div.remove()
             } else {
                 alert(data.message)

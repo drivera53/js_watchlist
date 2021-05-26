@@ -16,6 +16,8 @@ const coinCollection = document.getElementById("coin_collection")
 const newWatchlistBtn = document.getElementById("new_watchlist_btn")
 // Creating a global variable for Coin Container
 const coinContainer = document.getElementById("coin_form_container")
+// Creating a global varial for Watch list created Confirmation Container
+const confirmationContainer = document.getElementById("watchlist_created_confirmation")
 
 document.addEventListener("DOMContentLoaded", () => {
     watchlistForm.addCreateForm()
@@ -45,6 +47,9 @@ function displayCoinCollection() {
     coinCollection.style.display = "none"
 }
 
+// Testing area
+// confirmationContainer.hide()
+// setTimeout(function(){confirmationContainer.style.display = "none"}, 1000)
 
 
 
