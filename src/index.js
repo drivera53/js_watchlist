@@ -4,7 +4,9 @@ let addWatchlist = false;
 
 let divWatchlistCollection = document.querySelector('#watchlist_collection')
 const flatcoinWatchlistAdapter = new FlatcoinWatchlistAdapter(`http://127.0.0.1:3000/`)
+const flatcoinCoinAdapter = new FlatcoinCoinAdapter(`http://127.0.0.1:3000/`)
 const watchlistForm = new WatchlistForm
+const coinlistForm = new CoinForm
 
 // Creating a global variable for Watchlist Form container
 const watchlistFormContainer = document.getElementById("watchlist_form_container")
@@ -12,11 +14,13 @@ const watchlistFormContainer = document.getElementById("watchlist_form_container
 const coinCollection = document.getElementById("coin_collection")
 // 
 const newWatchlistBtn = document.getElementById("new_watchlist_btn")
+// Creating a global variable for Coin Container
+const coinContainer = document.getElementById("coin_form_container")
 
 document.addEventListener("DOMContentLoaded", () => {
     watchlistForm.addCreateForm()
     flatcoinWatchlistAdapter.getWatchlists()
-    watchlistForm.listenEditDelete()
+    watchlistForm.listenViewEditDelete()
     displayWatchlistForm()
     displayCoinCollection()
 })
@@ -40,6 +44,8 @@ function displayWatchlistForm() {
 function displayCoinCollection() {
     coinCollection.style.display = "none"
 }
+
+
 
 
 

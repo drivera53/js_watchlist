@@ -1,7 +1,7 @@
 class Coin {
     static all = []
 
-    constructor({id}, watchlist_id, {coin_api_id, name, symbol, image, current_price, price_change_percentage_1h_in_currency, high_24h, low_24h, total_volume, market_cap, market_cap_rank, circulating_supply}) {
+    constructor(watchlist_id, {id, coin_api_id, name, symbol, image, current_price, price_change_percentage_1h_in_currency, high_24h, low_24h, total_volume, market_cap, market_cap_rank, circulating_supply}) {
         this.id = id
         this.watchlist_id = watchlist_id
         this.coin_api_id = coin_api_id
@@ -20,7 +20,7 @@ class Coin {
     }
 
     render() { 
-        return(`<div class="coin_box" id="coin-${this.id}" data-id=${this.id}>
+        return(`<div class="coin_box" id="coin-${this.id}" data-id=${this.id} data-watchtid=${this.watchlist_id}>
                 <p><img src="${this.image}" alt="${this.name}" width="150" height="150"></p>
                 <h2>${this.name}</h2>
                 <h3>Current Price: $${this.current_price}</h3>
@@ -29,7 +29,7 @@ class Coin {
                 <p>24 Hour Low: $${this.low_24h}</p>
                 <p>Trading Volume 24 Hours: ${this.total_volume}</p>
                 <p>Market Cap: ${this.market_cap}</p>
-                <p>Market Cap Rank: #${this.watchlist_id}</p>
+                <p>Market Cap Rank: #${this.market_cap_rank}</p>
                 <p>Circulating Supply: $${this.circulating_supply}</p>
                 <button data-action='delete'>Delete</button>
             </div>`
