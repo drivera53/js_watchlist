@@ -82,6 +82,8 @@ class FlatcoinCoinAdapter {
             // console.log(data)
             if(data.message === "Successfully deleted" ){
                 div.remove()
+                confirmationCoinDeleteContainer.style.display = "block"           
+                setTimeout(function(){confirmationCoinDeleteContainer.style.display = "none"}, 1500)
                 // alert(data.message)
             } else {
                 alert(data.message)

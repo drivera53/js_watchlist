@@ -5,7 +5,7 @@ class CoinForm {
     }
 
     addCreateForm(watchlist_name, watchlist_id) {
-        const coinFormContainer = document.getElementById("coin_form_container")
+        // const coinFormContainer = document.getElementById("coin_form_container")
         const title = document.createElement('div')
         title.innerHTML = `<h2>Watchlist: ${watchlist_name}</h2>`
         coinFormContainer.append(title)

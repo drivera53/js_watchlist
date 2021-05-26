@@ -7,6 +7,8 @@ const flatcoinCoinAdapter = new FlatcoinCoinAdapter(`http://127.0.0.1:3000/`)
 const watchlistForm = new WatchlistForm
 const coinlistForm = new CoinForm
 
+// Creating a global variable for coinFormContainer
+const coinFormContainer = document.getElementById("coin_form_container")
 //Creating a global variable for Back to watchlist btn
 const backToWatchlistBtn = document.getElementById("back_watchlist_btn")
 // Creating a global variable for Watchlist Collection
@@ -25,6 +27,8 @@ const confirmationContainer = document.getElementById("watchlist_created_confirm
 const confirmationDeleteContainer = document.getElementById("watchlist_deleted_confirmation")
 // Creating a global varial for Watch list updated Confirmation Container
 const confirmationUpdateContainer = document.getElementById("watchlist_updated_confirmation")
+// Creating a global varial for Coin Delete Confirmation
+const confirmationCoinDeleteContainer = document.getElementById("coin_deleted_confirmation")
 
 // DOM
 document.addEventListener("DOMContentLoaded", () => {
@@ -66,7 +70,7 @@ function displayGoBackWatchlists() {
 // 
 function handleGoBackWatchlists() {
     backToWatchlistBtn.addEventListener("click", () => {
-        console.log("Go back baby")
+        // console.log("Go back baby")
         // Displaying Create New Watchlist
         newWatchlistBtn.style.display = "block"
         // Displaying Watchlist Collection
@@ -77,6 +81,7 @@ function handleGoBackWatchlists() {
         coinContainer.style.display = "none"
         // Displaying Coins
         coinCollection.style.display = "none"
+        clearCoinCollectionAndForm()
 
     })
 }
@@ -85,7 +90,14 @@ function handleGoBackWatchlists() {
 // confirmationContainer.hide()
 // setTimeout(function(){confirmationContainer.style.display = "none"}, 1000)
 
-
+function clearCoinCollectionAndForm() {
+    while (coinCollection.firstChild) {
+        coinCollection.removeChild(coinCollection.firstChild)
+    }
+    while (coinFormContainer.firstChild) {
+        coinFormContainer.removeChild(coinFormContainer.firstChild)
+    }
+}
 
 
 

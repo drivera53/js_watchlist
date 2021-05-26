@@ -70,13 +70,6 @@ class WatchlistForm {
                 flatcoinCoinAdapter.getCoinlist(div)
                 // Adding an event listener for delete
                 coinlistForm.listenDelete()
-                // const newcoinCollection = document.getElementById("coin_collection")
-                // newcoinCollection.addEventListener("click", function(){
-                //     const div = event.target.parentElement
-                //     console.log(div)
-                //     const action = event.target.dataset.action
-                //     console.log(action)
-                // })
             default:
                 break
         }
