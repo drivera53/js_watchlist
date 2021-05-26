@@ -121,8 +121,19 @@ button:hover {
   opacity: .8;
 }
 
+.watchlist_collection {
+  display: block;
+}
+
 
 .new_watchlist_btn {
+  display: block;
+  margin: 0;
+  position: relative;
+  left: 40%;
+}
+
+.back_watchlist_btn {
   display: block;
   margin: 0;
   position: relative;

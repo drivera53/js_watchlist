@@ -52,6 +52,12 @@ class WatchlistForm {
                 document.getElementById('description_input').value = div.children[1].innerText
                 break
             case "view":
+                // Hidding Create New Watchlist
+                newWatchlistBtn.style.display = "none"
+                // Hidding Watchlist Collection
+                watchlistCollection.style.display = "none"
+                //Displaying Back to Watchlists btn
+                backToWatchlistBtn.style.display = "block"
                 // Displaying Coin Form
                 // const coinlistForm = new CoinForm
                 coinlistForm.addCreateForm(div.children[0].innerText, div.dataset.id)
