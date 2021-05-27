@@ -130,6 +130,15 @@ button:hover {
   opacity: .8;
 }
 
+.coin_confirmation_create_container {
+  padding: 1rem;
+  width: stretch;
+  height: auto;
+  display: none;
+  background: #ececee;
+  opacity: .8;
+}
+
 .watchlist_collection {
   display: block;
 }

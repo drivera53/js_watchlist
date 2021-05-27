@@ -29,6 +29,9 @@ const confirmationDeleteContainer = document.getElementById("watchlist_deleted_c
 const confirmationUpdateContainer = document.getElementById("watchlist_updated_confirmation")
 // Creating a global varial for Coin Delete Confirmation
 const confirmationCoinDeleteContainer = document.getElementById("coin_deleted_confirmation")
+coin_created_confirmation
+// Creating a global varial for Coin Create Confirmation
+const confirmationCoinCreateContainer = document.getElementById("coin_created_confirmation")
 
 // DOM
 document.addEventListener("DOMContentLoaded", () => {
