@@ -54,7 +54,7 @@ class FlatcoinCoinAdapter {
                 return resp.json()
                 })
                 .then(updated_coin_data => {
-                    const c = new Coin(watchlist_id, updated_coin_data)
+                    const c = new Coin(watchlist_id.value, updated_coin_data)
                     c.addToDom()
                     confirmationCoinCreateContainer.style.display = "block"           
                     setTimeout(function(){confirmationCoinCreateContainer.style.display = "none"}, 1500)
